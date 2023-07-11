@@ -52,12 +52,12 @@
 
 ~~~shell
 .
-│  LICENSE
-│  README.md
-└─docs
-        1-基础语法.md
-        2-高级特性.md
-        3-备忘录.md
+├─docs		// 考核文档
+├─etc		// 杂项文档
+│  └─blog	// 优质文章/笔记
+├─img		// 文档图片
+├─LICENSE
+└─README.md
 ~~~
 
 
