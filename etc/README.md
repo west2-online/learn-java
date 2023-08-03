@@ -8,12 +8,14 @@
 
 ## 目录
 
-| 文章                                                     | 作者    | 分享人 |
-| -------------------------------------------------------- | ------- | ------ |
-| [**阿里巴巴开发规范**](./blog/阿里巴巴Java开发手册.pdf)  | Alibaba | 李炎东 |
-| [Swagger在线文档使用](./blog/swagger使用.md)             | 刘俊辉  | 刘俊辉 |
-| [Docker入门教程(更新到docker-compose)](./blog/Docker.md) | 李炎东  | 李炎东 |
-| [grpc RPC框架简单使用教程](./blog/gRPC.md)               | 李炎东  | 李炎东 |
-| [单点登录SSO系统简单讲解](./blog/SSO.md)                 | 李炎东  | 李炎东 |
-| [分布式定时任务入门](./blog/分布式定时任务.md)           | 李炎东  | 李炎东 |
+| 文章                                                         | 作者    | 分享人 |
+| ------------------------------------------------------------ | ------- | ------ |
+| [**阿里巴巴开发规范**](./blog/阿里巴巴Java开发手册.pdf)      | Alibaba | 李炎东 |
+| [Swagger在线文档使用](./blog/swagger使用.md)                 | 刘俊辉  | 刘俊辉 |
+| [Docker入门教程(更新到docker-compose)](./blog/Docker.md)     | 李炎东  | 李炎东 |
+| [grpc RPC框架简单使用教程](./blog/gRPC.md)                   | 李炎东  | 李炎东 |
+| [单点登录SSO系统简单讲解](./blog/SSO.md)                     | 李炎东  | 李炎东 |
+| [分布式定时任务入门](./blog/分布式定时任务.md)               | 李炎东  | 李炎东 |
+| [Typora+PicGo+Gitee搭建博客写作环境](https://cloud.tencent.com/developer/article/1762069) | 三分恶  | 翁鹏   |
+| [Mybatis入门教程](./blog/Mybatis.md)                         | 李炎东  | 李炎东 |
 
