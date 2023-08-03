@@ -18,4 +18,5 @@
 | [分布式定时任务入门](./blog/分布式定时任务.md)               | 李炎东  | 李炎东 |
 | [Typora+PicGo+Gitee搭建博客写作环境](https://cloud.tencent.com/developer/article/1762069) | 三分恶  | 翁鹏   |
 | [Mybatis入门教程](./blog/Mybatis.md)                         | 李炎东  | 李炎东 |
+| [RocketMQ入门](./blog/RocketMQ入门.md)                       | 翁鹏    | 翁鹏   |
 
