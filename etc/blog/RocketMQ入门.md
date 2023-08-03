@@ -36,7 +36,7 @@
 
 Feign调用就属于同步方式，虽然调用可以实时得到结果，但存在下面的问题：
 
-![image-20210717162004285](F:/java学习/1、微服务开发框架SpringCloud+RabbitMQ+Docker+Redis+搜索+分布式微服务全技术栈课程/实用篇/学习资料/day04-MQ/讲义/assets/image-20210717162004285.png)
+![](https://gitee.com/poldroc/typora-drawing-bed01/raw/master/imgs/202308030849476.png)
 
 
 
