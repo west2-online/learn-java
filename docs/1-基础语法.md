@@ -1,4 +1,4 @@
-# Java & Andoird第一轮考核
+# Java & Android第一轮考核
 
 ## 参考资料
 
