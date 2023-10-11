@@ -19,4 +19,5 @@
 | [Typora+PicGo+Gitee搭建博客写作环境](https://cloud.tencent.com/developer/article/1762069) | 三分恶  | 翁鹏   |
 | [Mybatis入门教程](./blog/Mybatis.md)                         | 李炎东  | 李炎东 |
 | [RocketMQ入门](./blog/RocketMQ入门.md)                       | 翁鹏    | 翁鹏   |
+| [MySQL](./blog/MySQL.md)                                     | 高毅飞  | 高毅飞 |
 
