@@ -21,4 +21,5 @@
 | [RocketMQ入门](./blog/RocketMQ入门.md)                       | 翁鹏    | 翁鹏   |
 | [MySQL](./blog/MySQL.md)                                     | 高毅飞  | 高毅飞 |
 | [docker-compose 简易编排部署](./blog/docker-compose简易部署.md) | 高毅飞  | 高毅飞 |
+| [Redis](./blog/Redis.md)                                     | 高毅飞  | 高毅飞 |
 
