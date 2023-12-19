@@ -20,5 +20,5 @@
 | [Mybatis入门教程](./blog/Mybatis.md)                         | 李炎东  | 李炎东 |
 | [RocketMQ入门](./blog/RocketMQ入门.md)                       | 翁鹏    | 翁鹏   |
 | [MySQL](./blog/MySQL.md)                                     | 高毅飞  | 高毅飞 |
-| [docker-compose 简易编排部署](./blog/docker compose简易部署.md) | 高毅飞  | 高毅飞 |
+| docker-compose 简易编排部署                                  | 高毅飞  | 高毅飞 |
 
