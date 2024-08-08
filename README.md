@@ -21,6 +21,10 @@
 
 预期时长以一名零基础为参考，如果是已经对其他语言有一定的了解所有预期时长都可以除以10
 
+## 作业提交
+[作业提交仓库](https://github.com/west2-online-reserve/collection-java) 
+
+
 ## 时间安排
 
 | 时间     | 完成内容                             |
