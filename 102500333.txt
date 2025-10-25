@@ -1,0 +1,331 @@
+1. 一个 Animal 动物类（Animal.java）
+ 
+public abstract class Animal {
+    private String name;
+    private int age;
+    private String gender;
+    private double price;
+
+    public Animal(String name, int age, String gender, double price) {
+        this.name = name;
+        this.age = age;
+        this.gender = gender;
+        this.price = price;
+    }
+
+    public abstract String toString();
+
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
+    public int getAge() { return age; }
+    public void setAge(int age) { this.age = age; }
+    public String getGender() { return gender; }
+    public void setGender(String gender) { this.gender = gender; }
+    public double getPrice() { return price; }
+    public void setPrice(double price) { this.price = price; }
+}
+2. 中华田园犬类（ChinesePastoralDog.java）
+ 
+public class ChinesePastoralDog extends Animal {
+    private boolean isVaccineInjected; 
+
+    public ChinesePastoralDog(String name, int age, String gender, boolean isVaccineInjected) {
+        super(name, age, gender, 100.0);
+        this.isVaccineInjected = isVaccineInjected;
+    }
+
+    @Override
+    public String toString() {
+        return "中华田园犬：[" +
+                "姓名='" + getName() + '\'' +
+                ", 年龄=" + getAge() +
+                ", 性别='" + getGender() + '\'' +
+                ", 价格=" + getPrice() + "元" +
+                ", 已注射狂犬疫苗=" + isVaccineInjected +
+                ']';
+    }
+
+    public boolean isVaccineInjected() { return isVaccineInjected; }
+    public void setVaccineInjected(boolean vaccineInjected) { isVaccineInjected = vaccineInjected; }
+}
+3. 猫猫类（Cat.java）
+ 
+public class Cat extends Animal {
+    public Cat(String name, int age, String gender) {
+        super(name, age, gender, 200.0);
+    }
+
+    @Override
+    public String toString() {
+        return "猫咪：[" +
+                "姓名='" + getName() + '\'' +
+                ", 年龄=" + getAge() +
+                ", 性别='" + getGender() + '\'' +
+                ", 价格=" + getPrice() + "元" +
+                ']';
+    }
+}
+ 4. 其他动物类（ Parrot.java）
+ 
+public class Pig extends Animal {
+    private String featherColor; 
+
+    public Pig(String name, int age, String gender, double price, String featherColor) {
+        super(name, age, gender, price);
+        this.featherColor = featherColor;
+    }
+
+    @Override
+    public String toString() {
+        return "鹦鹉：[" +
+                "姓名='" + getName() + '\'' +
+                ", 年龄=" + getAge() +
+                ", 性别='" + getGender() + '\'' +
+                ", 价格=" + getPrice() + "元" +
+                ", 羽毛颜色='" + featherColor + '\'' +
+                ']';
+    }
+
+    public String getFeatherColor() { return featherColor; }
+    public void setFeatherColor(String featherColor) { this.featherColor = featherColor; }
+}
+5. 顾客类（Customer.java）
+ 
+import java.time.LocalDate;
+
+public class Customer {
+    private String name;
+    private int visitCount;
+    private LocalDate latestVisitTime;
+
+    public Customer(String name, int visitCount, LocalDate latestVisitTime) {
+        this.name = name;
+        this.visitCount = visitCount;
+        this.latestVisitTime = latestVisitTime;
+    }
+
+    @Override
+    public String toString() {
+        return "顾客信息：[" +
+                "姓名='" + name + '\'' +
+                ", 到店次数=" + visitCount +
+                ", 最新到店时间=" + latestVisitTime +
+                ']';
+    }
+
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
+    public int getVisitCount() { return visitCount; }
+    public void setVisitCount(int visitCount) { this.visitCount = visitCount; }
+    public LocalDate getLatestVisitTime() { return latestVisitTime; }
+    public void setLatestVisitTime(LocalDate latestVisitTime) { this.latestVisitTime = latestVisitTime; }
+}
+ 6. 宠物店接口（AnimalShop.java）
+ 
+import java.time.LocalDate;
+
+public interface AnimalShop {
+    void buyAnimal(Animal animal) throws InsufficientBalanceException;
+
+    void serveCustomer(Customer customer) throws AnimalNotFoundException;
+
+    void closeShop(LocalDate date);
+}
+7. 自定义异常类
+ 
+动物未找到异常（AnimalNotFoundException.java）
+
+public class AnimalNotFoundException extends RuntimeException {
+    public AnimalNotFoundException(String message) {
+        super(message);
+    }
+}
+ 
+ 
+余额不足异常（InsufficientBalanceException.java）
+
+public class InsufficientBalanceException extends RuntimeException {
+    public InsufficientBalanceException(String message) {
+        super(message);
+    }
+}
+8. 自定义宠物店类（MyAnimalShop.java）
+ 
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
+public class MyAnimalShop implements AnimalShop {
+    private double balance; 
+    private List<Animal> animalList; 
+    private List<Customer> customerList; 
+    private boolean isOpen; 
+    private double dailyProfit; 
+
+    public MyAnimalShop(double initialBalance) {
+        this.balance = initialBalance;
+        this.animalList = new ArrayList<>();
+        this.customerList = new ArrayList<>();
+        this.isOpen = true;
+        this.dailyProfit = 0.0;
+    }
+
+    @Override
+    public void buyAnimal(Animal animal) throws InsufficientBalanceException {
+        if (!isOpen) {
+            throw new RuntimeException("店铺已歇业，无法买入动物！");
+        }
+        double animalPrice = animal.getPrice();
+        if (balance < animalPrice) {
+            throw new InsufficientBalanceException("余额不足，无法买入该动物！当前余额：" + balance + "元，所需金额：" + animalPrice + "元");
+        }
+        animalList.add(animal);
+        balance -= animalPrice;
+        System.out.println("成功买入：" + animal.toString() + "，当前店铺余额：" + balance + "元");
+    }
+
+    @Override
+    public void serveCustomer(Customer customer) throws AnimalNotFoundException {
+        if (!isOpen) {
+            throw new RuntimeException("店铺已歇业，无法招待客户！");
+        }
+
+        if (animalList.isEmpty()) {
+            throw new AnimalNotFoundException("店内暂无动物可售，无法满足客户需求！");
+        }
+
+            boolean isExisting = false;
+        for (Customer c : customerList) {
+            if (c.getName().equals(customer.getName())) {
+                c.setVisitCount(c.getVisitCount() + 1);
+                c.setLatestVisitTime(customer.getLatestVisitTime());
+                isExisting = true;
+                break;
+            }
+        }
+        if (!isExisting) {
+            customerList.add(customer);
+        }
+
+        Animal soldAnimal = animalList.remove(0);
+        double soldPrice = soldAnimal.getPrice();
+        balance += soldPrice;
+        dailyProfit += soldPrice; // 累计当日利润
+        System.out.println("成功出售：" + soldAnimal.toString());
+        System.out.println("招待客户成功：" + customer.toString() + "，当前店铺余额：" + balance + "元");
+    }
+
+    @Override
+    public void closeShop(LocalDate date) {
+        isOpen = false;
+        System.out.println("\n===== " + date + " 店铺歇业统计 =====");
+       
+        System.out.println("当日光顾客户列表：");
+        boolean hasDailyCustomer = false;
+        for (Customer c : customerList) {
+            if (c.getLatestVisitTime().equals(date)) {
+                System.out.println(c.toString());
+                hasDailyCustomer = true;
+            }
+        }
+        if (!hasDailyCustomer) {
+            System.out.println("当日无客户光顾");
+        }
+        
+        System.out.println("当日利润：" + dailyProfit + "元");
+        System.out.println("===========================");
+    }
+
+    
+    public double getBalance() { return balance; }
+    public List<Animal> getAnimalList() { return animalList; }
+    public List<Customer> getCustomerList() { return customerList; }
+    public boolean isOpen() { return isOpen; }
+}
+9. 测试类（Test.java）
+
+
+import java.time.LocalDate;
+
+public class Test {
+    public static void main(String[] args) {
+      
+        MyAnimalShop shop = new MyAnimalShop(1000.0);
+
+       
+        try {
+            shop.buyAnimal(new ChinesePastoralDog("大黄", 2, "公", true));
+            shop.buyAnimal(new Cat("小白", 1, "母"));
+            shop.buyAnimal(new Parrot("彩彩", 1, "公", 150.0, "彩色"));
+            
+            shop.buyAnimal(new Parrot("金刚", 3, "公", 1000.0, "蓝色"));
+        } catch (InsufficientBalanceException e) {
+            System.out.println("买入失败：" + e.getMessage());
+        }
+      
+        LocalDate today = LocalDate.now();
+        try {
+            shop.serveCustomer(new Customer("张三", 1, today));
+            shop.serveCustomer(new Customer("李四", 2, today));
+           
+            shop.serveCustomer(new Customer("王五", 1, today));
+        } catch (AnimalNotFoundException e) {
+            System.out.println("招待客户失败：" + e.getMessage());
+        }
+
+        shop.closeShop(today);
+
+        
+        System.out.println("\n===== Bonus方法测试 =====");
+
+        int[] arr1 = {1, 3, 5, 7, 9};
+        int[] arr2 = {2, 4, 6, 8, 10};
+        System.out.println("多线程交替输出数组结果：");
+        alternatePrintArrays(arr1, arr2);
+
+        String[] emails = {"test@163.com", "invalid-email", "user@qq.cn", "123@.com"};
+        for (String email : emails) {
+            System.out.println("邮箱 '" + email + "' 格式合法？" + isEmailValid(email));
+        }
+    }
+
+    public static void alternatePrintArrays(int[] arr1, int[] arr2) {
+        Object lock = new Object();
+        new Thread(() -> {
+            synchronized (lock) {
+                for (int num : arr1) {
+                    System.out.print(num + " ");
+                    lock.notify();                     try {
+                        lock.wait();                     } catch (InterruptedException e) {
+                        Thread.currentThread().interrupt();
+                    }
+                }
+                lock.notify();、            }
+        }).start();
+
+        new Thread(() -> {
+            synchronized (lock) {
+                for (int num : arr2) {
+                    System.out.print(num + " ");
+                    lock.notify(); 
+                    try {
+                        lock.wait(); 
+                    } catch (InterruptedException e) {
+                        Thread.currentThread().interrupt();
+                    }
+                }
+                lock.notify(); 
+            }
+        }).start();
+    }
+
+
+    public static boolean isEmailValid(String email) {
+        if (email == null || email.isEmpty()) {
+            return false;
+        }
+
+        String regex = "^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\\.[a-zA-Z0-9_-]+)+$";
+        return email.matches(regex);
+    }
+}
