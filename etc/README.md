@@ -22,5 +22,6 @@
 | [MySQL](./blog/MySQL.md)                                     | 高毅飞  | 高毅飞 |
 | [docker-compose 简易编排部署](./blog/docker-compose简易部署.md) | 高毅飞  | 高毅飞 |
 | [Redis](./blog/Redis.md)                                     | 高毅飞  | 高毅飞 |
-|[Java技术栈(不止Java)文档仓库](https://github.com/HarveyBlocks/blog)|HarveyBlocks|HarveyBlocks|
+|[Java技术栈(不止Java)文档集合
+](https://harveyblocks.github.io/)|HarveyBlocks|HarveyBlocks|
 |[算法与数据结构-stl库的简单实现](https://github.com/HarveyBlocks/algorithm-stl)|HarveyBlocks|HarveyBlocks|
